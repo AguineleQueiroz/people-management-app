@@ -1,0 +1,94 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root{
+    --colorHeader: #7B113A;
+    --colorBgGray: #eaeae9;
+    --colorBtnDelete: #FD3A69;
+    --colorBtnDeleteHover: #D82148;
+    --colorBtnedit: #54E346;
+    --colorBtnEditHover: #6EBF8B;
+    --colorBgModal: white;
+    --colorBtnRegHover: #9C3D54;
+    --colorBtnReg: #E2703A;
+    --colorFooterPage: #151515;
+    --colorBlurBgModal: rgba(0,0,0, .5);
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+    font-family: 'karla', sans-serif;
+    width: 100%;
+    min-height: 100vh;
+    position: relative;
+    background-color: var(--colorBgGray);
+}
+
+main{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 90%;
+    margin: 5vh auto;
+    padding: 0 1rem 2rem 1rem;
+    background-color: var(--colorBgModal);
+    box-shadow: 0 2px 7px 5px var(--colorBgGray);
+    gap: 2rem;
+}
+
+#header-page{
+    text-align: center;
+    line-height: 3.5rem;
+    font-size: 1.5rem;
+    color: var(--colorBgModal);
+    background-color: var(--colorHeader);
+    min-width: 100%;
+}
+
+#heroes-table{
+    padding-top: 1rem;
+    width: 100%;
+}
+
+#header-table{
+    line-height: 2rem;
+    color: var(--colorBgModal);
+    background-color: var(--colorHeader);
+}
+
+.content-rows, .table-data{
+    font-size: 0.9rem;
+    padding: 0 0.5rem;
+    min-width: 10.7rem;
+}
+
+#content-table tr:hover{
+    background-color: var(--colorBgGray);
+}
+
+.table-data, .actions-buttons{
+    border: 0.1rem solid var(--colorBgGray);
+}
+
+#page-footer{
+    position: relative;
+    width: 100%;
+    text-align: center;
+    font-weight: 300;
+    color: var(--colorBgGray);
+    background-color: var(--colorFooterPage);
+    line-height: 6rem;
+    margin-top: auto;
+}
+
+@media only screen and  (max-width: 1000px) {
+    #heroes-table{
+        display: block;
+        overflow-x: scroll;
+    }
+}

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRUD</title>
+
+    <link rel="stylesheet" href="../assets/css/home.css">
+    <link rel="stylesheet" href="../assets/css/buttons.css">
+    <link rel="stylesheet" href="../assets/css/modals.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Karla:wght@300;400;500;600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/fd38f84954.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <header id="header-page">
+        <h3 class="title-page">Heroes Academy</h3>
+    </header>
+
+    <main>
+        <table id="heroes-table" class="records">
+            <thead id="header-table">
+                <tr>
+                    <th class="content-rows">Name</th>
+                    <th class="content-rows">E-mail</th>
+                    <th class="content-rows">Telephone</th>
+                    <th class="content-rows">Office</th>
+                    <th class="content-rows">Action</th>
+                </tr>
+            </thead>
+            <tbody id="content-table">
+                <!-- tr's criadas via JS -->
+            </tbody>
+        </table>
+        
+        <button type="button" class="button new-reg-button" id="new-register">New Register</button>
+
+        <div id="md-overlay">
+            <div class="modal" id="modal">
+                <div id="content-modal">
+                    <header id="header-modal">
+                        <h2 id="title-modal">Hero Data</h2>
+                        <span class="modal-close" id="close-md"><i class="fa-solid fa-xmark"></i></span>
+                    </header>
+                    <form id="md-form">
+                        <input data-index="new" id="name" placeholder="Full Name" type="text" class="md-field" required>
+                        <input id="email" placeholder="E-mail" type="email" class="md-field" required>
+                        <div>
+                            <input id="phoneNumber" placeholder="Phone Number" type="text" class="md-field" required>
+                            <input id="office" placeholder="Office" type="text" class="md-field" required>
+                        </div>
+                    </form>
+                    <footer id="modal-ft">
+                        <button id="cancel" class="button cancel-btn-md"><i class="fa-regular fa-rectangle-xmark"></i></button>
+                        <button id="save" class="button register-btn-md"><i class="fa-solid fa-check"></i></button>
+                    </footer>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer id="page-footer">
+        Copyright &copy; Aguinele Queiroz
+    </footer>
+    <script src="../assets/js/index.js"></script>
+</body>
+</html>

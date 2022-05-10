@@ -1,0 +1,57 @@
+@import url(../css/home.css);
+
+.button{
+    width: 60px;
+    height: 30px;
+    border: none;
+    outline: none;
+    color: var(--colorBgModal);
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.actions-buttons{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 10px;
+    padding: 0.2rem;
+}
+
+.delete-button, .cancel-btn-md {
+    background-color: var(--colorBtnDelete);
+}
+
+.delete-button:hover, .cancel-btn-md:hover{
+    background-color: var(--colorBtnDeleteHover);
+}
+
+.edit-button,  .register-btn-md {
+    background-color: var(--colorBtnedit);
+}
+
+.edit-button:hover, .register-btn-md:hover{
+    background-color: var(--colorBtnEditHover);
+}
+
+.btn-div{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    width: 100%;
+}
+
+#new-register{
+    width: 130px;
+    background-color: var(--colorBtnReg);
+}
+
+#new-register:hover{
+    width: 130px;
+    background-color: var(--colorBtnRegHover);
+}
+
+.register-btn-md{
+    margin-left: 0.5rem;
+}
+

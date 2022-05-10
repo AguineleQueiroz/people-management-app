@@ -1,0 +1,101 @@
+@import url(../css/home.css);
+
+#md-overlay,
+#content-modal,
+#header-modal,
+#md-form,
+#md-form > div,
+#modal-ft{
+    display: flex;
+}
+
+#md-overlay{
+    width: 100vw;
+    min-height: 100vh;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--colorBlurBgModal);
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    z-index: -2000;
+    opacity: 0;
+}
+
+#md-overlay.active{
+    z-index: 2000;
+    opacity: 1; 
+}
+
+#modal{
+    position: fixed;
+    top: 8rem;
+    width: 30rem;
+    background-color: var(--colorBgModal);
+    border-radius: 0.2rem; 
+}
+
+
+.modal-close{
+    display: block;
+    position: absolute;
+    right: 1.5rem;
+    cursor: pointer;
+    width: 0.2rem;
+    height: 0.2rem;
+    user-select: none;
+}
+
+.modal-close:hover{
+    color: var(--colorBtnDelete);
+}
+
+#content-modal{
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+}
+
+#header-modal{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: var(--colorHeader);
+    color: var(--colorBgModal);
+    line-height: 2.5rem;
+    padding: 0 1rem;
+    border-radius: 0.1rem 0.1rem 0 0;
+}
+
+#md-form{
+    display: flex;
+    flex-direction: column;
+    padding: 1rem 0.5rem;
+    justify-content: space-around;
+}
+
+#md-form > div > input{
+    width: 50%;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.md-field{
+    padding: 0.5rem;
+    border-radius: 0.2rem;
+    border: 0.1rem solid var(--colorHeader);
+    outline-color: var(--colorHeader);
+    margin: 0.2rem;
+    cursor: pointer;
+}
+
+.md-field::placeholder{
+    font-style: italic;
+    color: var(--colorHeader);
+}
+
+#modal-ft{
+    flex-direction: row;
+    justify-content: flex-end;
+    padding: 1rem;
+}
