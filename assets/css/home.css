@@ -58,6 +58,42 @@ main {
   font-size: large;
 }
 
+.container {
+  display: grid;
+  grid-template-columns: 100%;
+  place-items: center;
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  width: 90%;
+}
+
+.search-bar {
+  border: none;
+  outline: none;
+  font-size: .9rem;
+  height: 2rem;
+  width: 15rem;
+  padding: 0 10px;
+  border-radius: 1px;
+  color: var(--colorFooterPage);
+}
+
+.search-bar:focus {
+  background-color: #f6f8ff;
+}
+
+.search-bar::-webkit-search-cancel-button {
+  -webkit-appearance: none;
+}
+
+.search-bar::placeholder {
+  color: var(--colorHeader);
+  font-size: .9rem;
+}
+
 #persons-table {
   padding-top: 1rem;
   width: 100%;
@@ -105,4 +141,8 @@ tr:nth-child(even) {
     display: block;
     overflow-x: scroll;
   }
+}
+
+.hidden{
+  display: none;
 }

@@ -170,9 +170,10 @@ function clearTable() {
   const response = confirm(`Deseja realmente excluir todos os registros da tabela?`);
   if (response) {
     clearRowsTable();
-  } 
+  }
   return;
 }
+
 
 /**
  * Representa escolha de uma ação para cada linha da tabela
@@ -195,6 +196,37 @@ const actionsRowsTable = (event) => {
     }
   }
 };
+
+/* 
+* Feature Search persons
+*/
+const filteredRows = (arrRows, inputValue, returnMatchedRows) => arrRows
+  .filter(row => {
+    let data = row.textContent.toLocaleLowerCase().split('\n').slice(1, 5);
+    const arrStr = data.map(dataColumn => dataColumn.trim());
+    const matchedRows = arrStr[0].includes(inputValue);
+    return returnMatchedRows ? matchedRows : !matchedRows;
+  })
+// Esconde as pessoas que nao dao match com a busca
+const hidePersons = (arrRows, inputValue) => {
+  filteredRows(arrRows, inputValue, false)
+  .forEach(row => row.classList.add('hidden'));
+}
+// Mostra pessoas que dao match
+const showPersons = (arrRows, inputValue) => {
+  filteredRows(arrRows, inputValue, true)
+  .forEach(row => row.classList.remove('hidden'));
+}
+
+const inputSearch = document.querySelector('.div-input-search input');
+const parentRows = document.querySelector('#content-table');
+
+inputSearch.addEventListener('input', event => {
+  const inputValue = event.target.value.trim().toLocaleLowerCase();
+  const arrRows = Array.from(parentRows.children);
+  hidePersons(arrRows, inputValue);
+  showPersons(arrRows, inputValue);
+})
 
 
 document.getElementById("new-register").addEventListener("click", openModal);
