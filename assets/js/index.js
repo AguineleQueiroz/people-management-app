@@ -1,14 +1,9 @@
 "use strict";
-/**
- * @returns
- */
+
 const openModal = () => {
   document.getElementById("md-overlay").classList.add("active");
 };
 
-/**
- *
- */
 const closeModal = () => {
   cleanUpDataFields();
   document.getElementById("md-overlay").classList.remove("active");
@@ -17,50 +12,46 @@ const closeModal = () => {
 /**
  * @returns Array de Objetos
  */
-const getHeroesDataBase = () =>
-  JSON.parse(localStorage.getItem("dbHeroes")) ?? [];
+const getPersonsDataBase = () =>
+  JSON.parse(localStorage.getItem("dbPersons")) ?? [];
 
 /**
- * @param {Array} dbAcademyHeroes
- * @returns
+ * @param {Array} dbPersonsList
  */
-const setHeroesDataBase = (dbAcademyHeroes) =>
-  localStorage.setItem("dbHeroes", JSON.stringify(dbAcademyHeroes));
+const setPersonsDataBase = (dbPersonsList) =>
+  localStorage.setItem("dbPersons", JSON.stringify(dbPersonsList));
 
 /**
- * Armazena heroi no localStorage.
- * @param {Object} hero
+ * Armazena obj pessoa no localStorage.
+ * @param {Object} person
  */
-const createHeroInDB = (hero) => {
-  const dbAcademyHeroes = getHeroesDataBase();
-  dbAcademyHeroes.push(hero);
-  setHeroesDataBase(dbAcademyHeroes);
+const createPersonInDB = (person) => {
+  const dbPersonsList = getPersonsDataBase();
+  dbPersonsList.push(person);
+  setPersonsDataBase(dbPersonsList);
 };
 
 /**
- * Lê dados do DB caso exista e armazena em readHeroesDataBase.
+ * Lê dados do DB caso exista e armazena em readPersonsDataBase.
  * Do contrário, retorna um Array vazio.
  * @returns
  */
-const readHeroesDataBase = () => getHeroesDataBase();
+const readPersonsDataBase = () => getPersonsDataBase();
 
 /**
- * Atualiza dados de um heroi.
+ * Atualiza dados de uma pessoa.
  * @param {Number} index
- * @param {Object} hero
+ * @param {Object} person
  */
-const updateDataHeroes = (index, hero) => {
-  const dbAcademyHeroes = readHeroesDataBase();
-  dbAcademyHeroes[index] = hero;
-  setHeroesDataBase(dbAcademyHeroes);
+const updateDataPerson = (index, person) => {
+  const dbPersonsList = readPersonsDataBase();
+  dbPersonsList[index] = person;
+  setPersonsDataBase(dbPersonsList);
 };
 
-/**
- *
- */
-const saveHeroesInDB = () => {
+const savePersonInDB = () => {
   if (isValidFields()) {
-    const hero = {
+    const person = {
       name: document.getElementById("name").value,
       email: document.getElementById("email").value,
       telephone: document.getElementById("phoneNumber").value,
@@ -68,17 +59,17 @@ const saveHeroesInDB = () => {
     };
 
     /**
-     * Se data-set in HTML é 'new' o evento 'save' vem do button da home.
-     * Caso contrário, evento capturado do button do modal ativo.
+     * Se data-set in HTML é 'new' o evento 'save' vem do button do modal 'profile information' da home.
+     * Caso contrário, evento capturado vem do button do modal de edição de dados ativo.
      */
     const index = document.getElementById("name").dataset.index;
     if (index == "new") {
-      createHeroInDB(hero);
-      refreshHeroesTable();
+      createPersonInDB(person);
+      refreshPersonTable();
       closeModal();
     } else {
-      updateDataHeroes(index, hero);
-      refreshHeroesTable();
+      updateDataPerson(index, person);
+      refreshPersonTable();
       document.getElementById("name").dataset.index = "new";
       closeModal();
     }
@@ -97,83 +88,90 @@ function cleanUpDataFields() {
 
 /**
  * @returns true - Se campos são válidos
+ * @returns false - Se campos são inválidos
  */
 function isValidFields() {
   return document.getElementById("md-form").reportValidity();
 }
 
 /**
- * @param {Number} index
+ * @param {Number} index - identificador do registro na tabela
  */
-const deleteHero = (index) => {
-  const dbAcademyHeroes = readHeroesDataBase();
-  dbAcademyHeroes.splice(index, 1);
-  setHeroesDataBase(dbAcademyHeroes);
+const deletePerson = (index) => {
+  const dbPersonsList = readPersonsDataBase();
+  dbPersonsList.splice(index, 1);
+  setPersonsDataBase(dbPersonsList);
 };
 
 /**
- * @param {Number} index
+ * @param {Number} index - identificador do registro na tabela
  */
-const editHero = (index) => {
-  const hero = readHeroesDataBase()[index];
-  hero.index = index;
-  fillFieldsDataHero(hero);
+const editPerson = (index) => {
+  const person = readPersonsDataBase()[index];
+  person.index = index;
+  fillFieldsDataHero(person);
   openModal();
 };
 
 /**
- * Retorna os dados de um objeto para os campos do modal.
- * @param {Object} hero
+ * @param {Object} person
+ * @returns Dados de um objeto para os campos do modal.
  */
-const fillFieldsDataHero = (hero) => {
-  document.getElementById("name").dataset.index = hero.index;
-  document.getElementById("name").value = hero.name;
-  document.getElementById("email").value = hero.email;
-  document.getElementById("phoneNumber").value = hero.telephone;
-  document.getElementById("office").value = hero.office;
+const fillFieldsDataHero = (person) => {
+  document.getElementById("name").dataset.index = person.index;
+  document.getElementById("name").value = person.name;
+  document.getElementById("email").value = person.email;
+  document.getElementById("phoneNumber").value = person.telephone;
+  document.getElementById("office").value = person.office;
 };
 
-/**
- *
- */
-const refreshHeroesTable = () => {
-  const dbAcademyHeroes = readHeroesDataBase();
+const refreshPersonTable = () => {
+  const dbPersonsList = readPersonsDataBase();
   clearRowsTable();
-  dbAcademyHeroes.forEach(createRow);
+  dbPersonsList.forEach(createRow);
 }
 
 /**
- * @param {Object} hero
+ * @param {Object} person
  * @param {Number} index
  */
-const createRow = (hero, index) => {
+const createRow = (person, index) => {
   const newRow = document.createElement("tr");
   newRow.innerHTML = `
-        <td class="table-data">${hero.name}</td>
-        <td class="table-data">${hero.email}</td>
-        <td class="table-data">${hero.telephone}</td>
-        <td class="table-data">${hero.office}</td>
+        <td class="table-data">${person.name}</td>
+        <td class="table-data">${person.email}</td>
+        <td class="table-data">${person.telephone}</td>
+        <td class="table-data">${person.office}</td>
         <td class="actions-buttons">
             <button type="button" id="deleteBtn-${index}" class="button delete-button"><i class="fa-solid fa-trash-arrow-up"></i></button>
             <button type="button" id="editBtn-${index}" class="button edit-button"><i class="fa-solid fa-pencil"></i></button>
         </td>
     `;
-  document.querySelector("#heroes-table > tbody").appendChild(newRow);
+  document.querySelector("#persons-table > tbody").appendChild(newRow);
 };
 
 /**
- *
+ * atualiza dados na tela 
  */
-refreshHeroesTable();
+refreshPersonTable();
 
 /**
  * Remove uma linha da tabela
  */
 function clearRowsTable() {
-  const row = document.querySelectorAll("#heroes-table > tbody > tr");
+  const row = document.querySelectorAll("#persons-table > tbody > tr");
   row.forEach((row) => {
     row.parentNode.removeChild(row);
   });
+}
+
+/* remove todos os registros da tabela */
+function clearTable() {
+  const response = confirm(`Deseja realmente excluir todos os registros da tabela?`);
+  if (response) {
+    clearRowsTable();
+  } 
+  return;
 }
 
 /**
@@ -186,28 +184,22 @@ const actionsRowsTable = (event) => {
     const [actionBtn, index] = event.target.id.split("-");
 
     if (actionBtn == "editBtn") {
-      editHero(index);
+      editPerson(index);
     } else {
-      const hero = readHeroesDataBase()[index];
-      const response = confirm(`Deseja realmente excluir ${hero.name}`);
+      const person = readPersonsDataBase()[index];
+      const response = confirm(`Deseja realmente excluir ${person.name}`);
       if (response) {
-        deleteHero(index);
-        refreshHeroesTable();
+        deletePerson(index);
+        refreshPersonTable();
       }
     }
   }
 };
 
-/**
- * Representa um evento
- * @event
- */
+
 document.getElementById("new-register").addEventListener("click", openModal);
-
 document.getElementById("close-md").addEventListener("click", closeModal);
-
 document.getElementById("cancel").addEventListener("click", closeModal);
-
-document.getElementById("save").addEventListener("click", saveHeroesInDB);
-
-document.querySelector("#heroes-table > tbody").addEventListener("click", actionsRowsTable);
+document.getElementById("save").addEventListener("click", savePersonInDB);
+document.querySelector("#persons-table > tbody").addEventListener("click", actionsRowsTable);
+document.getElementById("clear-registers").addEventListener("click", clearTable);

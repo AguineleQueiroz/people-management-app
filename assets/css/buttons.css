@@ -1,57 +1,77 @@
 @import url(../css/home.css);
 
-.button{
-    width: 60px;
-    height: 30px;
-    border: none;
-    outline: none;
-    color: var(--colorBgModal);
-    border-radius: 5px;
-    cursor: pointer;
+.button {
+  width: 60px;
+  height: 30px;
+  border: none;
+  outline: none;
+  color: var(--colorBgModal);
+  border-radius: 1px;
+  cursor: pointer;
+  font-size: 0.7rem;
+  text-transform: uppercase;
 }
 
-.actions-buttons{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    gap: 10px;
-    padding: 0.2rem;
+.actions-buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 10px;
+  padding: 0.2rem;
 }
 
-.delete-button, .cancel-btn-md {
-    background-color: var(--colorBtnDelete);
+.delete-button {
+  background-color: var(--colorBtnDelete);
 }
 
-.delete-button:hover, .cancel-btn-md:hover{
-    background-color: var(--colorBtnDeleteHover);
+.delete-button:hover {
+  background-color: var(--colorBtnDeleteHover);
 }
 
-.edit-button,  .register-btn-md {
-    background-color: var(--colorBtnedit);
+.edit-button,
+.register-btn-md {
+  background-color: var(--colorBtnedit);
 }
 
-.edit-button:hover, .register-btn-md:hover{
-    background-color: var(--colorBtnEditHover);
+.edit-button:hover,
+.register-btn-md:hover {
+  background-color: var(--colorBtnEditHover);
 }
 
-.btn-div{
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    width: 100%;
+.cancel-btn-md {
+  background-color: var(--colorCancelBtnModal);
+}
+.cancel-btn-md:hover {
+  background-color: var(--colorCancelBtnModalHover);
 }
 
-#new-register{
-    width: 130px;
-    background-color: var(--colorBtnReg);
+.btns-table {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+  gap: 10px;
 }
 
-#new-register:hover{
-    width: 130px;
-    background-color: var(--colorBtnRegHover);
+#new-register {
+  width: 130px;
+  background-color: var(--colorBtnedit);
 }
 
-.register-btn-md{
-    margin-left: 0.5rem;
+#new-register:hover {
+  width: 130px;
+  background-color: var(--colorBtnEditHover);
 }
 
+#clear-registers {
+  width: 130px;
+  background-color: var(--colorBtnDelete);
+}
+
+#clear-registers:hover {
+  width: 130px;
+  background-color: var(--colorBtnDeleteHover);
+}
+
+.register-btn-md {
+  margin-left: 0.5rem;
+}

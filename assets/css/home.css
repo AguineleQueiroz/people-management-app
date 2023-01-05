@@ -5,17 +5,19 @@
 }
 
 :root{
-    --colorHeader: #7B113A;
+    --colorHeader: #C400C6;
     --colorBgGray: #eaeae9;
     --colorBtnDelete: #FD3A69;
     --colorBtnDeleteHover: #D82148;
     --colorBtnedit: #54E346;
     --colorBtnEditHover: #6EBF8B;
+    --colorBtnRegHover: #FF6E31;
+    --colorBtnReg: #FF7000;
+    --colorFooterPage: #0F0E0E;
     --colorBgModal: white;
-    --colorBtnRegHover: #9C3D54;
-    --colorBtnReg: #E2703A;
-    --colorFooterPage: #151515;
-    --colorBlurBgModal: rgba(0,0,0, .5);
+    --colorCancelBtnModal: #c6c6c6;
+    --colorCancelBtnModalHover: #b6b6b6;
+    --colorBlurBgModal: rgba(0,0,0, .7);
 }
 
 body{
@@ -50,7 +52,12 @@ main{
     min-width: 100%;
 }
 
-#heroes-table{
+.title-page {
+    text-transform: uppercase;
+    font-size: large;
+}
+
+#persons-table{
     padding-top: 1rem;
     width: 100%;
 }
@@ -87,7 +94,7 @@ main{
 }
 
 @media only screen and  (max-width: 1000px) {
-    #heroes-table{
+    #persons-table{
         display: block;
         overflow-x: scroll;
     }

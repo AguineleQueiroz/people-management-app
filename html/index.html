@@ -18,11 +18,11 @@
 </head>
 <body>
     <header id="header-page">
-        <h3 class="title-page">Heroes Academy</h3>
+        <h3 class="title-page">Person List</h3>
     </header>
 
     <main>
-        <table id="heroes-table" class="records">
+        <table id="persons-table" class="records">
             <thead id="header-table">
                 <tr>
                     <th class="content-rows">Name</th>
@@ -37,13 +37,16 @@
             </tbody>
         </table>
         
-        <button type="button" class="button new-reg-button" id="new-register">New Register</button>
+        <div class="btns-table">
+            <button type="button" class="button new-reg-button" id="new-register">add person</button>
+            <button type="button" class="button clear-button" id="clear-registers">clear Table</button>
+        </div>
 
         <div id="md-overlay">
             <div class="modal" id="modal">
                 <div id="content-modal">
                     <header id="header-modal">
-                        <h2 id="title-modal">Hero Data</h2>
+                        <h4 id="title-modal">Profile Information</h4>
                         <span class="modal-close" id="close-md"><i class="fa-solid fa-xmark"></i></span>
                     </header>
                     <form id="md-form">
