@@ -6,6 +6,9 @@ Este projeto teve como objetivo o desenvolvimento de um
 CRUD básico usando HTML5 + CSS3 + JavaScript. Onde a criação, leitura, atualização e remoção de dados da tabela é realizada sobre o LocalStorage.
 Local onde os dados são persistidos para a execução da aplicação.   Foi Realizado o deploy da aplicação no Netlify e ela se encontra disponível para testes [aqui](https://crud-js-application.netlify.app/).
 
+## Status
+[![Status Completo](https://img.shields.io/badge/STATUS-COMPLETO-green?style=for-the-badge)]()
+
 ### Tecnologias
 
 * [Visual Studio Code](https://code.visualstudio.com/) Editor de textos.
