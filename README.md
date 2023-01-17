@@ -35,7 +35,7 @@ Local onde os dados são persistidos para a execução da aplicação. Foi Reali
 * Telefone
 * Cargo
 
-![dadosentry](https://user-images.githubusercontent.com/66737248/162998092-c3da610f-75ba-4978-be92-ee99d5e8fab3.png)
+![1](https://user-images.githubusercontent.com/66737248/212990483-261e7061-3195-4241-8a41-de9062585c58.png)
 
 ### Requisitos
 
@@ -43,9 +43,10 @@ Necessária a instalação do Visual Studio Code ou outra IDE que possibilite o 
 
 ### Interface da Aplicação
 
-![crud](https://user-images.githubusercontent.com/66737248/162998410-55d66e31-fefb-4b28-b13e-091102840e98.png)
+![2](https://user-images.githubusercontent.com/66737248/212990699-39d98491-e65f-41e1-aadd-3eca7358f045.png)
+![3](https://user-images.githubusercontent.com/66737248/212990711-e566d595-e91c-41c0-b41d-c9f288640ec8.png)
+![4](https://user-images.githubusercontent.com/66737248/212990716-3a9f99f8-1820-4922-98a3-62ccfa1785bc.png)
 
-![EditCrud](https://user-images.githubusercontent.com/66737248/162998796-cc34d007-bc03-4d0f-9a12-9be48dd09b2b.png)
 
 ### Autor
 
